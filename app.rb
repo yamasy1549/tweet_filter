@@ -1,6 +1,9 @@
+require 'dotenv'
 require 'sinatra'
 require './twitter_search'
 require './preprocessor'
+
+Dotenv.load
 
 set :environment, :production
 
@@ -22,7 +25,7 @@ def create_ng_words
   tweets.flatten!
 
   #=== 単語抽出
-  pre = Preprocessor.new('/usr/local/lib/mecab/dic/mecab-ipadic-neologd/')
+  pre = Preprocessor.new(ENV['MECAB_DIC'])
 
   words = []
   tweets.each do |tweet|
