@@ -17,3 +17,5 @@ def collect_tweets
     end
   end
 end
+
+collect_tweets

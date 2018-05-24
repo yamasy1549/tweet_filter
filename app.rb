@@ -1,5 +1,4 @@
 require 'sinatra'
-require './collect_tweets'
 require './twitter_search'
 require './preprocessor'
 
@@ -15,8 +14,6 @@ end
 
 def create_ng_words
   #=== ツイート準備
-  collect_tweets
-
   tweets = []
   media_list = %w(nhk_news nikkei asahi mainichi Yomiuri_Online)
   media_list.each do |media|
